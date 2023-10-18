@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('html/head.html', {
+"title": "grid"
+})
+
+<body>
+  <div class="wrapper">
+
+    @@include('html/header.html', {})
+
+    <main class="page--main">
+
+      <section class="grid">
+        <div class="container">
+
+          <section class="grid__item">
+
+            <h1>Grid</h1>
+
+            <p>Чтобы растянуть грид-элемент, используют слово span, а после указывают число колонок, которые элемент
+              должен занять:</p>
+
+            <pre>
+<code>
+.element {      
+  grid-column: span 2; // растянется на две колонки
+}                   
+</code>
+</pre>
+
+            <h2>grid-auto-flow</h2>
+
+            <p>Значение по умолчанию row говорит располагать элементы в том порядке, в котором они идут в
+              разметке, и при необходимости создавать новые ряды.</p>
+
+            <p>Но если указать значение dense, то контейнер будет заполняться так, чтобы не было пропусков.</p>
+
+            <p>Значение dense заставляет грид-контейнер заполнять пустые ячейки первым подходящим по размеру
+              грид-элементом. При этом
+              визуальный порядок на странице может отличаться от порядка элементов в разметке. Если порядок
+              элементов важен, лучше это
+              значение не использовать.</p>
+
+            <img src="img/grid.jpg" alt="" style="width: 250px; float: right;">
+
+            <code>
+
+      <h2>Положение всей сетки</h2>
+<p><span>justify-content:</span> start | end | center |space-between | space-around | space-evenly;</p>
+<p><span>align-content:</span> start | end | center | space-between | space-around | space-evenly;</p>
+
+      <h2>Положение содержимого ячеек</h2>
+  <p><span>place-items: align-items / justify-items;</span></p>
+<p><span>justify-items:</span> start | end | center | streach(по дефолту);</p>
+<p><span>align-items:</span> start | end | center | streach(по дефолту);</p>
+
+
+      <h2>Положение конкретной ячейки</h2>
+  <p><span>place-self: align-self / justify-self;</span></p>    
+<p><span>justify-self:</span> start | end | center | streach(по дефолту);</p>
+<p><span>align-self:</span> start | end | center | streach(по дефолту);</p>
+
+
+      <h2>grid-template</h2>
+<p><span>grid-template:</span> grid-template-rows / grid-template-columns;</p>
+
+
+      <h2>grid-row / grid-column</h2>
+<span>grid-row:</span> grid-row-start / grid-row-end;<br>
+<span>grid-column:</span> grid-column-start / grid-column-end
+
+</code>
+
+
+          </section>
+
+
+          <section class="grid-area">
+            <details class="show-block grid-area">
+              <summary><code>grid-area</code></summary>
+
+              <div class="grid-area__box">
+                <pre>
+                      <code>
+.grid-area__inner {
+  border: 1px solid #000;
+  max-width: 300px;
+  width: 100%;
+  min-height: 250px;
+                                                        
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+                    
+  "header header header header"
+  "main   main   .      aside"
+  "footer footer footer footer";
+                                      
+  <span class="red">точка делает пустым блок</span>
+}
+                                                        
+.grid-header {
+  grid-area: header; <span class="red">grid-area: имя области</span>
+  background-color: rgba(255, 0, 0, 0.327);
+}
+                                                        
+.grid-main {
+  grid-area: main;
+  background-color: rgba(169, 38, 193, 0.475);
+}
+                                                        
+.grid-aside {
+  grid-area: aside;
+  background-color: rgba(65, 155, 145, 0.517);
+}
+                                                        
+.grid-footer {
+  grid-area: footer;
+  background-color: rgb(173, 195, 114);
+}
+</code>
+</pre>
+
+
+                <div class="grid-area__inner">
+                  <div class="grid-area__item grid-header">header</div>
+                  <div class="grid-area__item grid-main">main</div>
+                  <div class="grid-area__item grid-aside">aside</div>
+                  <div class="grid-area__item grid-footer">footer</div>
+                </div>
+
+
+              </div>
+            </details>
+          </section>
+
+          <section class="adaptive-grid">
+            <h3 class="adaptive-grid__title">
+              <button class="adaptive-grid__button auto-fill__button">Анимация</button>
+              repeat(auto-fill, minmax(3em, 1fr))
+            </h3>
+
+            <div class="adaptive-grid__item auto-fill">
+              <div class="auto-fill__item">
+                <p class="auto-fill__text">1</p>
+              </div>
+              <div class="auto-fill__item">
+                <p class="auto-fill-item__text">2</p>
+              </div>
+              <div class="auto-fill__item">
+                <p class="auto-fill__text">3</p>
+              </div>
+              <div class="auto-fill__item">
+                <p class="auto-fill__text">4</p>
+              </div>
+              <div class="auto-fill__item">
+                <p class="auto-fill__text">5</p>
+              </div>
+            </div>
+
+            <h3 class="adaptive-grid__title">
+              <button class="adaptive-grid__button auto-fit__button">Анимация</button>
+              repeat(auto-fit, minmax(3em, 1fr))
+            </h3>
+
+            <div class="adaptive-grid__item auto-fit">
+              <div class="auto-fit__item">
+                <p class="auto-fit__text">1</p>
+              </div>
+              <div class="auto-fit__item">
+                <p class="auto-fit__text">2</p>
+              </div>
+              <div class="auto-fit__item">
+                <p class="auto-fit__text">3</p>
+              </div>
+              <div class="auto-fit__item">
+                <p class="auto-fit__text">4</p>
+              </div>
+              <div class="auto-fit__item">
+                <p class="auto-fit__text">5</p>
+              </div>
+            </div>
+
+            <h3>То же самое но на флексах</h3>
+            <h3><button class="adaptive-flex__button">Анимация</button></h3>
+
+            <p>flex-container: flex-flow: row wrap;</p>
+            <p>flex-item: flex: 1/1/3em;</p>
+            <div class="adaptive-grid__item adaptive-flex">
+              <div class="adaptive-flex__item">1</div>
+              <div class="adaptive-flex__item">2</div>
+              <div class="adaptive-flex__item">3</div>
+              <div class="adaptive-flex__item">4</div>
+              <div class="adaptive-flex__item">5</div>
+            </div>
+            <p>Эти элементы поделили свободное пространство между собой, а не выровнялись по элементам над ними
+              Во flex-контейнере распределение свободного пространства действует в рамках всей строки.</p>
+
+          </section>
+
+
+
+
+        </div>
+      </section>
+
+    </main>
+
+    @@include('html/footer.html', {})
+
+  </div> <!-- wrapper -->
+  <script src="js/app.min.js"></script>
+</body>
+
+</html>

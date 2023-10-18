@@ -1516,7 +1516,8 @@ console.log(app.getURL()); // 'https://yandex.ru/'
               <summary><code>Логические операторы</code></summary>
 
               <details class="show-piece">
-                <summary><code>?</code></summary>
+                <summary><code>?</code> -- если условие истинно, возвращается значение1, в противном случае –
+                значение2</summary>
                 <p>имеет три аргумента</p>
                 <pre>
   <code>
@@ -1575,8 +1576,7 @@ if (age &lt; 3) {
               </details>
 
               <details class="show-piece">
-                <summary><code>||</code> -- или</summary>
-                <p>возвращает первое истинное значение или последнее</p>
+                <summary><code>|| - или</code> -- возвращает первое истинное значение или последнее</summary>
                 <pre>
   <code>
 result = a || b; //если первый операнд вернет true то второй не вычисляется
@@ -1643,8 +1643,7 @@ alert(x); // 1
 
 
               <details class="show-piece">
-                <summary><code>&&</code> -- и</summary>
-                <p>находит первое ложное значение</p>
+                <summary><code>&& - и</code> -- находит первое ложное значение</summary>
 
                 <p>возвращает true, если оба аргумента истинны, а иначе – false</p>
                 <pre>

@@ -14,7 +14,7 @@
 
       <section class="svg">
         <div class="container">
-          
+
           <h1>svg</h1>
 
           <section class="svg">
@@ -168,16 +168,15 @@
             </section>
 
             <section class="svg-inline">
+              <h2>sprite</h2>
+              <p>Проблема инлайнового svg в том что браузер не может его кэшировать. Если имеется
+                большой спрайт то намного выгодней его кэшировать(поместить файл.svg не вставлять код в html а в
+                картинки
+                и
+                вытаскивать от туда).</p>
 
               <details class="show-piece">
-                <summary><code>спрайт</code></summary>
-
-                <p>Проблема инлайнового svg в том что браузер не может его кэшировать. Если имеется
-                  большой спрайт то намного выгодней его кэшировать(поместить файл.svg не вставлять код в html а в
-                  картинки
-                  и
-                  вытаскивать от туда).</p>
-
+                <summary><code>спрайт в html</code></summary>
 
                 <pre>
   <code>
@@ -252,6 +251,30 @@
 &lt;/svg&gt;
 
   </code>
+</pre>
+
+              </details>
+
+              <details class="show-piece">
+                <summary><code>спрайт в отдельном файле</code></summary>
+                <p>Почти то же что и выше но сам svg помещается в отдельный файл <code>sprite.svg</code> и уже от туда
+                  вытаскиваются его части при помощи тега <code>use</code></p>
+
+                <pre>
+  <code>
+в папку с картинками закидываем файл sprite.svg
+img --|
+      |-img.png
+      |-img.png
+      |-sprite.svg
+
+в файле html вытаскиваем части из файла sprite.svg
+
+&lt;svg&gt;
+  &lt;use href="../img/sprite.svg#id<sup>тут идет id symbol</sup> "&gt;&lt;/use&gt;
+&lt;/svg&gt;
+
+</code>
 </pre>
 
               </details>
