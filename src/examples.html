@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/head.html', {
+"title": "examples"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('html/header.html', {})
+
+    <main class="page--main">
+
+      <section class="examples">
+        <div class="container">
+
+          <div class="examples-js-object-for-in">
+
+            <a name="examples-js-object-for-in">
+              <h2>Перебор объекта в цикле for...in</h2>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=eqD7DJVJWOc" target="_blank" rel="noopener noreferrer">Источник
+              этого
+              примера https://www.youtube.com/watch?v=eqD7DJVJWOc</a>
+
+            <pre>
+  <code>
+let arr = [
+  {
+    "original_name": "Fight Club",
+    "russian_name": "Бойцовский клуб",
+    "year": 1999,
+    "actors": [
+      "Эдварт нортан",
+      "Бред Питт",
+      "Хелена Бонем Кратер"
+    ]
+  },
+  {
+    "original_name": "The Mask",
+    "russian_name": "Маска",
+    "year": 1994,
+    "actors": [
+      "Джим Керри",
+      "Камерон Диаз"
+    ]
+  },
+  {
+    "original_name": "Rocky III",
+    "russian_name": "Рокки 3",
+    "year": 1982,
+    "actors": [
+      "Сильвестр Сталоне",
+      "Мистер Ти",
+      "Талия Шайн",
+      "Бёрджесс Мередит"
+    ]
+  },
+]
+
+консоль лог приводит значения к строке
+по этому выражение надо писать в скобках //(i + 1), (k + 1), 
+что бы в результате была не конкатенация => i = 0; + i + 1 + = 01   ======== Фильм №01 ========
+а сам результат который получается в скобках => + (i + 1) + = 1     ======== Фильм №1 ========
+
+for (let i = 0; i < arr.length; i++) {
+  console.log("======== Фильм №" + (i + 1) + " ========"); 
+  for (let j in arr[i]) {                                 
+    if (j == "actors") {                                  
+      for (let k = 0; k < arr[i][j].length; k++) {        
+        console.log("Актёр " + (k + 1) + ": " + arr[i][j][k]);
+      }
+    } else if (j == "original_name") {
+      console.log("Оригинальное название: " + arr[i][j]);
+    } else if (j == "russian_name") {
+      console.log("Русское название: " + arr[i][j]);
+    } else if (j == "year") {
+      console.log("Год: " + arr[i][j]);
+    }
+  }
+}
+
+
+======== Фильм №1 ========
+js.js:71 Оригинальное название: Fight Club
+js.js:73 Русское название: Бойцовский клуб
+js.js:75 Год: 1999
+js.js:68 Актёр 1: Эдварт нортан
+js.js:68 Актёр 2: Бред Питт
+js.js:68 Актёр 3: Хелена Бонем Кратер
+js.js:64 ======== Фильм №2 ========
+js.js:71 Оригинальное название: The Mask
+js.js:73 Русское название: Маска
+js.js:75 Год: 1994
+js.js:68 Актёр 1: Джим Керри
+js.js:68 Актёр 2: Камерон Диаз
+js.js:64 ======== Фильм №3 ========
+js.js:71 Оригинальное название: Rocky III
+js.js:73 Русское название: Рокки 3
+js.js:75 Год: 1982
+js.js:68 Актёр 1: Сильвестр Сталоне
+js.js:68 Актёр 2: Мистер Ти
+js.js:68 Актёр 3: Талия Шайн
+js.js:68 Актёр 4: Бёрджесс Мередит
+  </code>
+</pre>
+          </div>
+
+          <div class="examples-js-object-for-of">
+
+            <a name="examples-js-object-for-of">
+              <h2>Обход коллекции элементов циклом for...of</h2>
+            </a>
+
+            <pre>
+  <code>
+&lt;button&gt;button-1&lt;/button&gt;
+&lt;button&gt;button-2&lt;/button&gt;
+&lt;button&gt;button-3&lt;/button&gt;
+
+let buttons = document.querySelectorAll('button');
+
+for (let button of buttons) {
+  button.onclick = f1;
+}
+
+function f1() {
+  console.log(this); //this укажет конкретный эдемент в консоли
+}
+
+console:
+
+//&lt;button&gt;button-1&lt;/button&gt;
+//&lt;button&gt;button-2&lt;/button&gt;
+//&lt;button&gt;button-3&lt;/button&gt;
+
+  </code>
+</pre>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    @@include('html/footer.html', {})
+    <!-- <script src="js/main.js"></script> -->
+  </div>
+</body>
+
+</html>

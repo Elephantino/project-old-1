@@ -63,6 +63,24 @@ isNaN("50 рублей") // (не число)
 </pre>
             </details>
 
+
+            <details class="show-piece">
+              <summary>четное или нечетное</summary>
+              <pre>
+  <code>
+const isEven = x =&gt; {
+  
+  if (x % 2 === 0) {  // If the remainder after dividing by two is 0, return true
+    return true;
+  }
+  return false; // If the number is odd, return false
+}
+
+isEven(12);  //true
+  </code>
+</pre>
+            </details>
+
           </section>
 
           <section class="js__transformation">
@@ -1517,7 +1535,7 @@ console.log(app.getURL()); // 'https://yandex.ru/'
 
               <details class="show-piece">
                 <summary><code>?</code> -- если условие истинно, возвращается значение1, в противном случае –
-                значение2</summary>
+                  значение2</summary>
                 <p>имеет три аргумента</p>
                 <pre>
   <code>
