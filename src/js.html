@@ -567,10 +567,6 @@ setTimeout(() =&lt; document.body.style.display = "", 1000); // возврат �
 
           </section>
 
-
-
-
-
           <section class="js__cycles">
             <h2 class="title">циклы</h2>
 
@@ -1713,6 +1709,74 @@ alert( 1 && 2 && 3 ); // 3
 
             </details>
           </section>
+
+
+
+          <section class="js__events">
+            <h2>События</h2>
+
+            <a href="https://www.youtube.com/watch?v=bWCzbR5DvCo&t=908s" target="_blank"
+              rel="noopener noreferrer">источник источник
+              источник источник источник</a>
+            <p>каждое событие имеет свой объект свойств с которыми можно взаимодействовать.</p>
+            <pre><code>
+clientX : 273
+clientY : 508
+offsetX : 100
+offsetY : 77
+
+code : "KeyS"
+composed : true
+ctrlKey : false
+currentTarget : null
+defaultPrevented : false
+key : "s"
+</code></pre>
+            <p>их можно вытащить при помощи event</p>
+            <p>какое событие будет указано такой объект и выдаст консоль со всеми свойствами этого события</p>
+
+            <pre><code>
+document.onmouseleave = (event) =&gt; {
+  console.log(event);
+}
+
+document.onmousemove = (event) =&gt; {
+  console.log(event);
+}
+
+document.onkeydown = (event) =&gt; {
+  console.log(event);
+}
+
+
+document.onclick = (event) =&gt; {
+  console.log(event);         //все детали события (и список всех событий)
+  console.log(event.type);    //тип события
+  console.log(event.target);  //объект на котором сработало событие(всплытие/погружение)
+  console.log(event.currentTarget); //объект которому назначен обработчик
+  
+  console.log(event.offsetX);
+  console.log(event.offsetY);
+}
+  </code>
+</pre>
+
+
+
+
+            <!-- <details class="show-block ">
+              <summary><code></code></summary>
+
+              <details class="show-piece">
+                <summary><code></code> </summary>
+
+              </details>
+
+            </details> -->
+
+          </section>
+
+
 
 
         </div>
